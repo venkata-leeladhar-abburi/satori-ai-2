@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronRight, ArrowRight, Zap, Shield, GitBranch, Sparkles, Building2, CheckCircle2, ChevronDown, TrendingUp, FileText, Search, BarChart3, MessageSquare, FileCheck, Package, ShieldCheck, Clock, Lock, Globe, Plug, Rocket, Users, CheckSquare, BarChart, Crown, Check, Mail } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { ChevronRight, ArrowRight, Zap, Shield, GitBranch, Sparkles, Building2, CheckCircle2, TrendingUp, FileText, Search, BarChart3, MessageSquare, FileCheck, Package, ShieldCheck, Clock, Lock, Globe, Plug, Rocket, Users, CheckSquare, BarChart, Crown, Check, Mail } from 'lucide-react';
 import Navbar from './components/Navbar';
 import DashboardPreview from './components/DashboardPreview';
 

@@ -1,6 +1,4 @@
-import React from 'react';
 import { TrendingUp, ChevronDown, CheckCircle2 } from 'lucide-react';
-import Gauge from './Gauge';
 
 const DashboardPreview = () => {
   return (

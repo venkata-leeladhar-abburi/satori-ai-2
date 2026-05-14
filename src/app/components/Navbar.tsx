@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ShoppingCart, Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 
 const Logo = () => (
   <div className="flex items-center gap-2">
