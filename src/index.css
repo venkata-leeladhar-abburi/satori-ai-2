@@ -1,0 +1,113 @@
+@import "tailwindcss";
+@import "./styles/fonts.css";
+
+@theme {
+  --font-satoshi: "Satoshi", sans-serif;
+  --font-instrument: "Instrument Serif", serif;
+  
+  --color-satori-orange: #F97316;
+  --color-satori-dark: #1A120B;
+  --color-satori-cream: #FAF7F4;
+  --color-satori-border: #EDE7E2;
+  --color-satori-gray: #7A6E66;
+}
+
+:root {
+  font-family: var(--font-satoshi);
+  background-color: var(--color-satori-cream);
+  color: var(--color-satori-dark);
+
+  /* Emil Kowalski's custom easing curves */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Base interactive elements */
+button, 
+a.button,
+.interactive-card {
+  transition: transform 200ms var(--ease-out), filter 200ms ease, opacity 200ms ease;
+  will-change: transform;
+}
+
+button:active,
+a.button:active,
+.interactive-card:active {
+  transform: scale(0.96);
+}
+
+/* Reveal Animation System */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1000ms var(--ease-out), transform 1000ms var(--ease-out);
+  will-change: transform, opacity;
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1200ms var(--ease-out), transform 1200ms var(--ease-out);
+  will-change: transform, opacity;
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.96) translateY(10px);
+  transition: opacity 1000ms var(--ease-out), transform 1000ms var(--ease-out);
+  will-change: transform, opacity;
+}
+
+.reveal.active,
+.reveal-up.active,
+.reveal-scale.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Stagger delays - refined for smoother sequence */
+.stagger-1 { transition-delay: 80ms; }
+.stagger-2 { transition-delay: 160ms; }
+.stagger-3 { transition-delay: 240ms; }
+.stagger-4 { transition-delay: 320ms; }
+.stagger-5 { transition-delay: 400ms; }
+.stagger-6 { transition-delay: 480ms; }
+
+/* Hero content reveal on mount - Fast start */
+.hero-reveal {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+}
+
+@starting-style {
+  .hero-reveal {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+}
+
+/* Blur transition for content changes */
+.blur-transition {
+  transition: filter 200ms ease, opacity 200ms ease;
+}
+
+.blur-transition.transitioning {
+  filter: blur(4px);
+  opacity: 0.7;
+}
+
+/* Hardware accelerated transforms for better perf under load */
+.gpu {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
